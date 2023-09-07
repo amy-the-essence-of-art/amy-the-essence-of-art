@@ -5,11 +5,53 @@
     <title>예술의 정석</title>
     <meta property="og:image" content="./images/logo.jpg">
     <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=x6albodpw0"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap');
+        
         html, body {
+            font-family: 'Noto Serif KR', serif;
             margin: 0px;
             height: 100%;
+        }
+
+        .iw_inner {
+            padding:0px 30px;
+            margin: 15px 0px;
+        }
+
+        .iw_inner h2, .iw_inner p {
+            margin: 0px;
+        }
+
+        .iw_head p img {
+            vertical-align: middle;
+        }
+        
+        .iw_head p span {
+            vertical-align: middle;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        .iw_body {
+            margin: 15px 10px;
+        }
+
+        .iw_body p {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        #logo-instagram {
+            color: blue;
+            text-decoration: none;
+        }
+
+        .search-road {
+            color: brown;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -22,9 +64,41 @@
 		});
 		
 		var marker = new naver.maps.Marker({
-		    position: new naver.maps.LatLng(37.467088, 126.658213),
+		    position: new naver.maps.LatLng(37.467088, 126.658218),
 		    map: map
 		});
+
+        var path = "http://m.map.naver.com/route.nhn?menu=route&ename=%EC%9D%B8%EC%B2%9C%EA%B4%91%EC%97%AD%EC%8B%9C%20%EB%AF%B8%EC%B6%94%ED%99%80%EA%B5%AC%20%EC%88%99%EA%B3%A8%EB%A1%9C43%EB%B2%88%EA%B8%B8%20142&ex=126.9816485&ey=37.4765675&pathType=0&showMap=true";
+        var contentString = [
+                '<div class="iw_inner">',
+                '    <div class="iw_head">',
+                '        <p>',
+                '            <img src="./images/logo.jpg" width="30px" height="30px" align="middle" />',
+                '            <span>예술의 정석 / <a class="search-road" href="' + path + '">길 찾기</a></span>',
+                '        </p>',
+                '    </div>',
+                '    <div class="iw_body">',
+                '        <p>\'일상에 예술 한 스푼\'</p>',
+                '        <p>가치있는 즐거운 예술을 만듭니다.</p>',
+                '        <p>문화예술의 중심 \'예술의 정석\'</p>',
+                '    </div>',
+                '    <label><img src="./images/logo_instagram.jpg" width="15px" height="15px" /> <a id="logo-instagram" href="https://www.instagram.com/amy_the_essence_of_art">amy_the_essence_of_art</a></label>',
+                '</div>'
+            ].join('');
+
+        var infowindow = new naver.maps.InfoWindow({
+            content: contentString
+        });
+
+        naver.maps.Event.addListener(marker, "click", function(e) {
+            if (infowindow.getMap()) {
+                infowindow.close();
+            } else {
+                infowindow.open(map, marker);
+            }
+        });
+
+        infowindow.open(map, marker);
 	</script>
 </body>
 </html>
