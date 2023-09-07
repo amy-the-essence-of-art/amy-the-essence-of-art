@@ -4,17 +4,23 @@
     <meta charset="UTF-8">
     <title>예술의 정석</title>
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=x6albodpw0"></script>
+    <style>
+        html, body {
+            margin: 0px;
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
-    <div id="map" style="width:100%; height:800px;"></div>
+    <div id="map" style="width:100%; height:100%;"></div>
 	<script>
 		var map = new naver.maps.Map('map', {
-		    center: new naver.maps.LatLng(37.466774, 126.656958), // 잠실 롯데월드를 중심으로 하는 지도
-		    zoom: 18
+		    center: new naver.maps.LatLng(37.466774, 126.657858),
+		    zoom: 20
 		});
 		
 		var marker = new naver.maps.Marker({
-		    position: new naver.maps.LatLng(37.467032, 126.658213),
+		    position: new naver.maps.LatLng(37.467088, 126.658213),
 		    map: map
 		});
 	</script>
