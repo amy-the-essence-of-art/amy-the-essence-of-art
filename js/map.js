@@ -44,5 +44,5 @@
     
     setTimeout(function() {
         infowindow.open(map, marker);
-    }, 100);
+    }, 500);
 })();
