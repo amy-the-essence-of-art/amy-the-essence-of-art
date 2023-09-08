@@ -14,8 +14,8 @@
             '<div class="iw_inner">',
             '    <div class="iw_head">',
             '        <p>',
-            '            <img src="./images/logo.jpg" width="30px" height="30px" align="middle" />',
-            '            <span>예술의 정석 / <a class="search-road" href="' + path + '">길 찾기</a></span>',
+            '            <img src="./images/logo.jpg" width="40px" height="40px" align="middle" />',
+            '            <span class="main-text">예술의 정석 / <a class="search-road" href="' + path + '">길 찾기</a></span>',
             '        </p>',
             '    </div>',
             '    <div class="iw_body">',
@@ -23,12 +23,11 @@
             '        <p>가치있는 즐거운 예술을 만듭니다.</p>',
             '        <p>문화예술의 중심 \'예술의 정석\'</p>',
             '    </div>',
-            '    <label><img src="./images/logo_instagram.jpg" width="15px" height="15px" /> <a id="logo-instagram" href="https://www.instagram.com/amy_the_essence_of_art">amy_the_essence_of_art</a></label>',
+            '    <p><label><img src="./images/logo_instagram.jpg" width="15px" height="15px" /> <a id="logo-instagram" href="https://www.instagram.com/amy_the_essence_of_art">amy_the_essence_of_art</a></label></p>',
             '</div>'].join('');
 
     var infowindow = new naver.maps.InfoWindow({
-        content: contentString,
-        maxWidth: 260
+        content: contentString
     });
 
     naver.maps.Event.addListener(marker, "click", function(e) {
@@ -44,5 +43,5 @@
     
     setTimeout(function() {
         infowindow.open(map, marker);
-    }, 100);
+    }, 300);
 })();
