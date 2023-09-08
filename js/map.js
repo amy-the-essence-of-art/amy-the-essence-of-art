@@ -40,4 +40,9 @@
     });
 
     infowindow.open(map, marker);
+    infowindow.close();
+    
+    setTimeout(function() {
+        infowindow.open(map, marker);
+    }, 100);
 })();
