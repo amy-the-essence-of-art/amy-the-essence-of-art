@@ -1,1 +1,0 @@
-# amy-the-essence-of-art
